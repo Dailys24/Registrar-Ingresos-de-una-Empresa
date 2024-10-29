@@ -64,32 +64,39 @@ int main() {
 }
 
 // Función para ingresar datos
-void IngresarDatos(double ingresos[], int tamano) {
+void IngresarDatos(double ingresos[], int tamano) 
+{
     // Ingresar los ingresos de los últimos 2 meses
-    for (int i = 0; i < tamano; ++i) {
+    for (int i = 0; i < tamano; ++i) 
+    {
         printf("Digite los ingresos del mes %d: ", i + 1);
         scanf("%lf", &ingresos[i]);
     }
     // Mostrar los ingresos ingresados
     printf("\nIngresos de los últimos 2 meses:\n");
-    for (int i = 0; i < tamano; ++i) {
+    for (int i = 0; i < tamano; ++i) 
+    {
         printf("Mes %d: %.2f\n", i + 1, ingresos[i]);
     }
 }
 
 // Función para calcular el promedio de los ingresos
-double CalcularPromedio(double ingresos[], int tamano) {
+double CalcularPromedio(double ingresos[], int tamano) 
+{
     double suma = 0;
-    for (int i = 0; i < tamano; ++i) {
+    for (int i = 0; i < tamano; ++i) 
+    {
         suma += ingresos[i];
     }
     return suma / tamano;
 }
 
 // Función para calcular el crecimiento de los ingresos
-void CalcularCrecimiento(double ingresos[], int tamano) {
+void CalcularCrecimiento(double ingresos[], int tamano) 
+{
     printf("\nCrecimiento de los ingresos:\n");
-    for (int i = 1; i < tamano; ++i) {
+    for (int i = 1; i < tamano; ++i) 
+    {
         double crecimiento = ((ingresos[i] - ingresos[i - 1]) / ingresos[i - 1]) * 100;
         printf("Crecimiento del mes %d al mes %d: %.2f%%\n", i, i + 1, crecimiento);
     }
