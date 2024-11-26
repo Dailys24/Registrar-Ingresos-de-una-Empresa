@@ -1,0 +1,50 @@
+def pause():
+    input("\n\u27a4 Presione enter para continuar...")
+
+def IngresarDatos(ingresos, tamano):
+    for i in range(tamano):
+        ingresos[i] = float(input(f"Digite los ingresos del mes {i + 1}: "))
+    print("\nIngresos de los últimos 2 meses:")
+    for i in range(tamano):
+        print(f"Mes {i + 1}: {ingresos[i]:.2f}")
+
+def CalcularPromedio(ingresos, tamano):
+    return sum(ingresos) / tamano
+
+def CalcularCrecimiento(ingresos, tamano):
+    print("\nCrecimiento de los ingresos:")
+    for i in range(1, tamano):
+        crecimiento = ((ingresos[i] - ingresos[i - 1]) / ingresos[i - 1]) * 100
+        print(f"Crecimiento del mes {i} al mes {i + 1}: {crecimiento:.2f}%")
+
+def main():
+    op = 0
+    MESES = 2
+    ingresos = [0] * MESES
+
+    while op != 4:
+        print("****************************************************************************************")
+        print("\n-----Registro de ingreso de una empresa-----\n")
+        print("\n------------- MENU -------------\n")
+        print("\n\u27a4 [1] Registrar los ingresos de los ultimos 2 meses de la empresa.")
+        print("\n\u27a4 [2] Calcular el promedio de los ingresos.")
+        print("\n\u27a4 [3] Calcular el crecimiento.")
+        print("\n\u27a4 [4] Terminar")
+        print("\n****************************************************************************************")
+        op = int(input("\nIngrese una opcion: "))
+
+        if op == 1:
+            IngresarDatos(ingresos, MESES)
+            pause()
+        elif op == 2:
+            promedio = CalcularPromedio(ingresos, MESES)
+            print(f"El promedio de los ingresos es: {promedio:.2f}")
+            pause()
+        elif op == 3:
+            CalcularCrecimiento(ingresos, MESES)
+            pause()
+        elif op == 4:
+            print("\n****Gracias por utilizar****")
+
+if __name__ == "__main__":
+    main()
